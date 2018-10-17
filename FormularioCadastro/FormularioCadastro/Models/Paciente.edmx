@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PacienteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pacientes">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="IdPaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomePaciente" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="IdadePaciente" Type="int" Nullable="false" />
+          <Property Name="EmailPaciente" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RespPaciente" Type="varchar" MaxLength="30" />
+          <Property Name="QuadroPaciente" Type="int" />
+        </EntityType>
+        <EntityType Name="Quadros">
+          <Key>
+            <PropertyRef Name="IdQuadro" />
+          </Key>
+          <Property Name="IdQuadro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeQuadro" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_Paci_Quad">
+          <End Role="Quadros" Type="Self.Quadros" Multiplicity="0..1" />
+          <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quadros">
+              <PropertyRef Name="IdQuadro" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="QuadroPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PacienteModelStoreContainer">
+          <EntitySet Name="Pacientes" EntityType="Self.Pacientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quadros" EntityType="Self.Quadros" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Paci_Quad" Association="Self.FK_Paci_Quad">
+            <End Role="Quadros" EntitySet="Quadros" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PacienteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="IdPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomePaciente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdadePaciente" Type="Int32" Nullable="false" />
+          <Property Name="EmailPaciente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RespPaciente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="QuadroPaciente" Type="Int32" />
+          <NavigationProperty Name="Quadro" Relationship="Self.FK_Paci_Quad" FromRole="Pacientes" ToRole="Quadros" />
+        </EntityType>
+        <EntityType Name="Quadro">
+          <Key>
+            <PropertyRef Name="IdQuadro" />
+          </Key>
+          <Property Name="IdQuadro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeQuadro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pacientes" Relationship="Self.FK_Paci_Quad" FromRole="Quadros" ToRole="Pacientes" />
+        </EntityType>
+        <Association Name="FK_Paci_Quad">
+          <End Role="Quadros" Type="Self.Quadro" Multiplicity="0..1" />
+          <End Role="Pacientes" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quadros">
+              <PropertyRef Name="IdQuadro" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="QuadroPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PacienteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pacientes" EntityType="Self.Paciente" />
+          <EntitySet Name="Quadros" EntityType="Self.Quadro" />
+          <AssociationSet Name="FK_Paci_Quad" Association="Self.FK_Paci_Quad">
+            <End Role="Quadros" EntitySet="Quadros" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PacienteModelStoreContainer" CdmEntityContainer="PacienteEntities">
+          <EntitySetMapping Name="Pacientes">
+            <EntityTypeMapping TypeName="PacienteModel.Paciente">
+              <MappingFragment StoreEntitySet="Pacientes">
+                <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+                <ScalarProperty Name="NomePaciente" ColumnName="NomePaciente" />
+                <ScalarProperty Name="IdadePaciente" ColumnName="IdadePaciente" />
+                <ScalarProperty Name="EmailPaciente" ColumnName="EmailPaciente" />
+                <ScalarProperty Name="RespPaciente" ColumnName="RespPaciente" />
+                <ScalarProperty Name="QuadroPaciente" ColumnName="QuadroPaciente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quadros">
+            <EntityTypeMapping TypeName="PacienteModel.Quadro">
+              <MappingFragment StoreEntitySet="Quadros">
+                <ScalarProperty Name="IdQuadro" ColumnName="IdQuadro" />
+                <ScalarProperty Name="NomeQuadro" ColumnName="NomeQuadro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

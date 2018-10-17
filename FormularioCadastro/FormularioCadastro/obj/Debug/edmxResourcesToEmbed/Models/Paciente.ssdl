@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PacienteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Pacientes">
+    <Key>
+      <PropertyRef Name="IdPaciente" />
+    </Key>
+    <Property Name="IdPaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomePaciente" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="IdadePaciente" Type="int" Nullable="false" />
+    <Property Name="EmailPaciente" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="RespPaciente" Type="varchar" MaxLength="30" />
+    <Property Name="QuadroPaciente" Type="int" />
+  </EntityType>
+  <EntityType Name="Quadros">
+    <Key>
+      <PropertyRef Name="IdQuadro" />
+    </Key>
+    <Property Name="IdQuadro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeQuadro" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_Paci_Quad">
+    <End Role="Quadros" Type="Self.Quadros" Multiplicity="0..1" />
+    <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quadros">
+        <PropertyRef Name="IdQuadro" />
+      </Principal>
+      <Dependent Role="Pacientes">
+        <PropertyRef Name="QuadroPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PacienteModelStoreContainer">
+    <EntitySet Name="Pacientes" EntityType="Self.Pacientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quadros" EntityType="Self.Quadros" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Paci_Quad" Association="Self.FK_Paci_Quad">
+      <End Role="Quadros" EntitySet="Quadros" />
+      <End Role="Pacientes" EntitySet="Pacientes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

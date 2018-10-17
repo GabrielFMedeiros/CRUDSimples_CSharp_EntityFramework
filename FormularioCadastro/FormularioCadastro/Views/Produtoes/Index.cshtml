@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FormularioCadastro.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastrar Produtos</h2>
+
+<p>
+    @Html.ActionLink("Novo Produto", "Create", new { area=""}, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped" style="border:1px solid black">
+    <thead class="thead">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Preço
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th></th>
+
+        </tr>
+    </thead>
+
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                R$: @Html.DisplayFor(modelItem => item.Preco),00
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria1.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdProduto }) |
+                @Html.ActionLink("Detalhar", "Details", new { id = item.IdProduto }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.IdProduto })
+            </td>
+        </tr>
+}
+
+</table>

@@ -1,0 +1,14 @@
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\bin\Debug\ConsoleAppValidacaoConexaoSQL.exe.config
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\bin\Debug\ConsoleAppValidacaoConexaoSQL.exe
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\bin\Debug\ConsoleAppValidacaoConexaoSQL.pdb
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.csprojResolveAssemblyReference.cache
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.csproj.CoreCompileInputs.cache
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.exe
+C:\Users\ab1238800\source\repos\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.pdb
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\bin\Debug\ConsoleAppValidacaoConexaoSQL.exe.config
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\bin\Debug\ConsoleAppValidacaoConexaoSQL.exe
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\bin\Debug\ConsoleAppValidacaoConexaoSQL.pdb
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.csprojAssemblyReference.cache
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.exe
+C:\Users\gabri\OneDrive\Documentos\OneDrive_2_17-09-2018\FormularioCadastro\ConsoleAppValidacaoConexaoSQL\obj\Debug\ConsoleAppValidacaoConexaoSQL.pdb

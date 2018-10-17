@@ -1,0 +1,50 @@
+﻿@model FormularioCadastro.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes do Produto</h2>
+
+<div>
+    <h4>Produto: @Html.DisplayFor(model => model.IdProduto) - @Html.DisplayFor(model => model.Nome)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            Descrição: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            Preço: 
+        </dt>
+
+        <dd>
+           R$:  @Html.DisplayFor(model => model.Preco),00
+        </dd>
+
+        <dt>
+           Categoria: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria1.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdProduto }, new { @class="btn btn-warning"})
+    @Html.ActionLink("Voltar", "Index", new { area=""}, new { @class="btn btn-info"})
+</p>
